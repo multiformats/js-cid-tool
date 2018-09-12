@@ -1,0 +1,43 @@
+{
+  "name": "cid-tool",
+  "version": "0.0.0",
+  "description": "Convert and discover properties of CIDs",
+  "main": "src/index.js",
+  "bin": {
+    "cid": "src/cli/bin.js"
+  },
+  "scripts": {
+    "start": "node src/cli/bin.js",
+    "test": "aegir test -t node",
+    "build": "aegir build",
+    "lint": "aegir lint",
+    "release": "aegir release",
+    "release-minor": "aegir release --type minor",
+    "release-major": "aegir release --type major",
+    "coverage": "aegir coverage"
+  },
+  "keywords": [
+    "CID",
+    "multibase",
+    "multicodec",
+    "multihash",
+    "codec",
+    "util",
+    "tool"
+  ],
+  "author": "Alan Shaw",
+  "license": "MIT",
+  "dependencies": {
+    "cids": "^0.5.3",
+    "explain-error": "^1.0.4",
+    "multibase": "^0.5.0",
+    "multihashes": "^0.4.14",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {
+    "aegir": "^15.1.0",
+    "chai": "^4.1.2",
+    "dirty-chai": "^2.0.1",
+    "execa": "^1.0.0"
+  }
+}
