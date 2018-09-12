@@ -1,3 +1,5 @@
+'use strict'
+
 const CID = require('cids')
 const explain = require('explain-error')
 
