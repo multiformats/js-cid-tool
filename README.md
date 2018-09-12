@@ -1,5 +1,7 @@
 # CID Tool
 
+[![dependencies Status](https://david-dm.org/ipfs-shipyard/cid-tool/status.svg)](https://david-dm.org/ipfs-shipyard/cid-tool)
+
 > A JS module and command line tool for converting, formatting and discovering properties of CIDs
 
 ## Install
