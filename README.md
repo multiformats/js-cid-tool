@@ -1,4 +1,4 @@
-# CID Tools
+# CID Tool
 
 > A JS module and command line tool for converting, formatting and discovering properties of CIDs
 
@@ -49,7 +49,7 @@ Convert the passed CID(s) to base 32 CID version 1.
 
 | Name | Type | Description |
 |------|------|-------------|
-| cids | `Array`/|[`CID`](https://github.com/ipld/js-cid/)/|`String`/|`Buffer` | CID or CIDs to convert. |
+| cids | `Array`\|[`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID or CIDs to convert. |
 
 #### Returns
 
