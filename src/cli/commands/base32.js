@@ -9,13 +9,12 @@ module.exports = {
 
   handler (argv) {
     if (argv.cids && argv.cids.length) {
-      const cids = CIDTool.base32(argv.cids)
-      return cids.forEach(cid => console.log(cid))
+      return argv.cids.forEach(cid => console.log(CIDTool.base32(cid)))
     }
 
     process.stdin.on('data', data => {
       const cid = data.toString().trim()
-      console.log(CIDTool.base32(cid)[0])
+      console.log(CIDTool.base32(cid))
     })
   }
 }

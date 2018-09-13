@@ -43,27 +43,27 @@ const CIDTool = require('cid-tool')
 
 ## API
 
-### `CIDTool.base32(cids)`
+### `CIDTool.base32(cid)`
 
-Convert the passed CID(s) to base 32 CID version 1.
+Convert the passed CID to base 32 CID version 1.
 
 #### Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
-| cids | `Array`\|[`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID or CIDs to convert. |
+| cids |[`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID to convert. |
 
 #### Returns
 
 | Type | Description |
 |------|-------------|
-| `Array<String>` | Base 32 encoded version 1 CIDs |
+| `String` | Base 32 encoded version 1 CID |
 
 #### Example
 
 ```js
-> CIDTool.base32(['QmdnJHe9XKk6atRSqAq1SdCu12MMSKxSPC93EWngEDoypj'])
-[ 'bafybeihfofifyyrirgqad3de7nkyldbleo3awwv4ghbba4ipjqthk2nhaa' ]
+> CIDTool.base32('QmdnJHe9XKk6atRSqAq1SdCu12MMSKxSPC93EWngEDoypj')
+'bafybeihfofifyyrirgqad3de7nkyldbleo3awwv4ghbba4ipjqthk2nhaa'
 ```
 
 ### `CIDTool.bases()`

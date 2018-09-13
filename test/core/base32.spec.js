@@ -11,7 +11,7 @@ const TestCID = require('../fixtures/test-cid')
 
 describe('core base32', () => {
   it('should convert CIDs to base32', () => {
-    const input = [
+    const inputs = [
       TestCID.v0,
       new CID(TestCID.v0),
       new CID(TestCID.v0).buffer,
@@ -25,12 +25,10 @@ describe('core base32', () => {
       new CID(TestCID.b64),
       new CID(TestCID.b64).buffer
     ]
-    const expectedOutput = input.map(() => TestCID.b32)
-    expect(CIDTool.base32(input)).to.eql(expectedOutput)
-  })
 
-  it('should accept non array param', () => {
-    expect(() => CIDTool.base32(TestCID.v0)).to.not.throw()
+    inputs.forEach(input => {
+      expect(CIDTool.base32(input)).to.eql(TestCID.b32)
+    })
   })
 
   it('should throw error for invalid CID', () => {
