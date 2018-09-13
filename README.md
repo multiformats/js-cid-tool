@@ -34,42 +34,59 @@ Options:
   --help     Show help                                               [boolean]
 ```
 
-Help is also available for each command e.g.
+**Note**: help is also available for each command e.g. `cid format --help`
+
+#### Example
 
 ```console
-$ cid format --help
-cid format [cids...]
+$ cid base32 QmdnJHe9XKk6atRSqAq1SdCu12MMSKxSPC93EWngEDoypj
+bafybeihfofifyyrirgqad3de7nkyldbleo3awwv4ghbba4ipjqthk2nhaa
 
-Format and convert a CID in various useful ways.
+$ cid bases --prefix
+0 base1
+1 base2
+7 base8
+9 base10
+f base16
+b base32
+c base32pad
+v base32hex
+t base32hexpad
+h base32z
+Z base58flickr
+z base58btc
+m base64
+M base64pad
+u base64url
+U base64urlpad
 
-Options:
-  --version          Show version number                               [boolean]
-  --help             Show help                                         [boolean]
-  --format, -f       Printf style format string:
+$ cid codecs
+raw
+base1
+base2
+base8
+base10
+cbor
+protobuf
+# ...
 
-                     %% literal %
-                     %b multibase name
-                     %B multibase code
-                     %v version string
-                     %V version number
-                     %c codec name
-                     %C codec code
-                     %h multihash name
-                     %H multihash code
-                     %L hash digest length
-                     %m multihash encoded in base %b (with multibase prefix)
-                     %M multihash encoded in base %b without multibase prefix
-                     %d hash digest encoded in base %b (with multibase prefix)
-                     %D hash digest encoded in base %b without multibase prefix
-                     %s cid string encoded in base %b (1)
-                     %S cid string encoded in base %b without multibase prefix
-                     %P cid prefix: %v-%c-%h-%L
+$ cid format mAXASIOVxUFxiKImgAexk+1WFjCsjtgtavDHCEHEPTCZ1aacA -f "%b CIDv%V %h"
+base64 CIDv1 sha2-256
 
-                     (1) For CID version 0 the multibase must be base58btc and
-                     no prefix is used. For Cid version 1 the multibase prefix
-                     is included.                       [string] [default: "%s"]
-  --cid-version, -v  CID version to convert to.                         [number]
-  --base, -b         Multibase to display output in.                    [string]
+$ cid hashes
+id
+sha1
+sha2-256
+sha2-512
+dbl-sha2-256
+sha3-224
+sha3-256
+sha3-384
+sha3-512
+shake-128
+shake-256
+keccak-224
+# ...
 ```
 
 ### Module
