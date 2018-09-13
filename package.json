@@ -41,6 +41,7 @@
     "execa": "^1.0.0"
   },
   "contributors": [
+    "Alan Shaw <alan.shaw@protocol.ai>",
     "Alan Shaw <alan@tableflip.io>"
   ],
   "directories": {
