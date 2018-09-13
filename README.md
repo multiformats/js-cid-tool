@@ -19,19 +19,57 @@ npm install cid-tool    # for programmatic usage
 ### CLI
 
 ```console
-$ cid
+$ cid --help
 cid <command>
 
 Commands:
   cid base32 [cids...]  Convert CIDs to base 32 CID version 1.
   cid bases             List available multibase encoding names.
   cid codecs            List available CID codec names.
-  cid hashes            List available multihash hashing algorithm
-                        names.
+  cid format [cids...]  Format and convert a CID in various useful ways.
+  cid hashes            List available multihash hashing algorithm names.
 
 Options:
-  --version  Show version number                            [boolean]
-  --help     Show help                                      [boolean]
+  --version  Show version number                                     [boolean]
+  --help     Show help                                               [boolean]
+```
+
+Help is also available for each command e.g.
+
+```console
+$ cid format --help
+cid format [cids...]
+
+Format and convert a CID in various useful ways.
+
+Options:
+  --version          Show version number                               [boolean]
+  --help             Show help                                         [boolean]
+  --format, -f       Printf style format string:
+
+                     %% literal %
+                     %b multibase name
+                     %B multibase code
+                     %v version string
+                     %V version number
+                     %c codec name
+                     %C codec code
+                     %h multihash name
+                     %H multihash code
+                     %L hash digest length
+                     %m multihash encoded in base %b (with multibase prefix)
+                     %M multihash encoded in base %b without multibase prefix
+                     %d hash digest encoded in base %b (with multibase prefix)
+                     %D hash digest encoded in base %b without multibase prefix
+                     %s cid string encoded in base %b (1)
+                     %S cid string encoded in base %b without multibase prefix
+                     %P cid prefix: %v-%c-%h-%L
+
+                     (1) For CID version 0 the multibase must be base58btc and
+                     no prefix is used. For Cid version 1 the multibase prefix
+                     is included.                       [string] [default: "%s"]
+  --cid-version, -v  CID version to convert to.                         [number]
+  --base, -b         Multibase to display output in.                    [string]
 ```
 
 ### Module
@@ -51,7 +89,7 @@ Convert the passed CID to base 32 CID version 1.
 
 | Name | Type | Description |
 |------|------|-------------|
-| cids |[`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID to convert. |
+| cid | [`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID to convert. |
 
 #### Returns
 
@@ -120,6 +158,61 @@ List available [CID codec name and code pairs](https://github.com/multiformats/m
   { name: 'cbor', code: 81 },
   { name: 'protobuf', code: 80 },
   /* ... */ ]
+```
+
+### `CIDTool.format(cid, [options])`
+
+Format and convert a CID in various useful ways.
+
+#### Parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+| cid | [`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID to format |
+| options | `Object` | (optional) options for formatting |
+| options.format | `String` | Format string to use, default "%s" |
+| options.base | `String` | Multibase name or code to use for output |
+| options.cidVersion | `Number` | Convert the CID to the given version if possible |
+
+Available format specifiers:
+
+* %% literal %
+* %b multibase name
+* %B multibase code
+* %v version string
+* %V version number
+* %c codec name
+* %C codec code
+* %h multihash name
+* %H multihash code
+* %L hash digest length
+* %m multihash encoded in base %b (with multibase prefix)
+* %M multihash encoded in base %b without multibase prefix
+* %d hash digest encoded in base %b (with multibase prefix)
+* %D hash digest encoded in base %b without multibase prefix
+* %s cid string encoded in base %b (1)
+* %S cid string encoded in base %b without multibase prefix
+* %P cid prefix: %v-%c-%h-%L
+
+(1) For CID version 0 the multibase must be base58btc and no prefix is used. For Cid version 1 the multibase prefix is included.
+
+#### Returns
+
+| Type | Description |
+|------|-------------|
+| `String` | Formatted string |
+
+#### Example
+
+```js
+> CIDTool.format('QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn', { format: '%b-%v-%c-%h-%L' })
+'base58btc-cidv0-dag-pb-sha2-256-32'
+
+> CIDTool.format('QmUNLLsPACCz1vLxQVkXqqLX5R1X345qqfHbsf67hvA3Nn', { cidVersion: 1 })
+'zdj7WbTaiJT1fgatdet9Ei9iDB5hdCxkbVyhyh8YTUnXMiwYi'
+
+> CIDTool.format('zdj7WksYf5DNoDhTbjNZundK13TdEYo9sNaFWYZuKBM3fNszf', { base: 'base64' })
+'mAXASIOVxUFxiKImgAexk+1WFjCsjtgtavDHCEHEPTCZ1aacA'
 ```
 
 ### `CIDTool.hashes()`

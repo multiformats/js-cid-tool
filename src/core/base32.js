@@ -7,7 +7,7 @@ module.exports = function base32 (cid) {
   try {
     cid = new CID(cid)
   } catch (err) {
-    throw explain(err, `invalid cid ${cid}`)
+    throw explain(err, `invalid cid: ${cid}`)
   }
 
   if (cid.version !== 1) {
