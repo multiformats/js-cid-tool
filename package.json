@@ -42,5 +42,16 @@
   },
   "contributors": [
     "Alan Shaw <alan@tableflip.io>"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipfs-shipyard/js-cid-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ipfs-shipyard/js-cid-tool/issues"
+  },
+  "homepage": "https://github.com/ipfs-shipyard/js-cid-tool#readme"
 }
