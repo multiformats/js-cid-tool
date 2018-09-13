@@ -101,10 +101,14 @@ function replacer (cid, base, options) {
           ? cid.toBaseEncodedString(base).slice(1)
           : multibase.encode(base, cid.buffer).toString().slice(1)
       case 'P': // prefix
-        const { name, length } = multihash.decode(cid.multihash)
-        return `cidv${cid.version}-${cid.codec}-${name}-${length}`
+        return prefix(cid)
       default:
         throw new Error(`unrecognized specifier in format string: ${specifier}`)
     }
   }
+}
+
+function prefix (cid) {
+  const { name, length } = multihash.decode(cid.multihash)
+  return `cidv${cid.version}-${cid.codec}-${name}-${length}`
 }
