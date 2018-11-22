@@ -49,10 +49,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ipfs-shipyard/js-cid-tool.git"
+    "url": "git+https://github.com/multiformats/js-cid-tool.git"
   },
   "bugs": {
-    "url": "https://github.com/ipfs-shipyard/js-cid-tool/issues"
+    "url": "https://github.com/multiformats/js-cid-tool/issues"
   },
-  "homepage": "https://github.com/ipfs-shipyard/js-cid-tool#readme"
+  "homepage": "https://github.com/multiformats/js-cid-tool#readme"
 }
