@@ -1,6 +1,6 @@
 # CID Tool
 
-[![Build Status](https://travis-ci.org/ipfs-shipyard/js-cid-tool.svg?branch=master)](https://travis-ci.org/ipfs-shipyard/js-cid-tool) [![dependencies Status](https://david-dm.org/ipfs-shipyard/cid-tool/status.svg)](https://david-dm.org/ipfs-shipyard/cid-tool) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Build Status](https://travis-ci.org/multiformats/js-cid-tool.svg?branch=master)](https://travis-ci.org/multiformats/js-cid-tool) [![dependencies Status](https://david-dm.org/multiformats/cid-tool/status.svg)](https://david-dm.org/multiformats/cid-tool) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > A module and command line tool for converting, formatting and discovering properties of CIDs
 
@@ -258,7 +258,7 @@ List available [multihash hashing algorithm name and code pairs](https://github.
 
 ## Contribute
 
-Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs-shipyard/cid-tool/issues)!
+Feel free to join in. All welcome. Open an [issue](https://github.com/multiformats/cid-tool/issues)!
 
 This repository falls under the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
 
