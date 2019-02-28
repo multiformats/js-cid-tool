@@ -28,7 +28,7 @@
   "author": "Alan Shaw",
   "license": "MIT",
   "dependencies": {
-    "cids": "github:ipld/js-cid#refactor/cidv1base32-default",
+    "cids": "github:multiformats/js-cid#refactor/cidv1base32-default",
     "explain-error": "^1.0.4",
     "multibase": "~0.6.0",
     "multihashes": "~0.4.14",
