@@ -15,7 +15,7 @@ module.exports = {
     },
     numeric: {
       describe: 'Display the numeric encoding code as well as the encoding name',
-      type: 'booelan',
+      type: 'boolean',
       default: false
     }
   },

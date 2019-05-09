@@ -10,7 +10,7 @@ module.exports = {
   builder: {
     numeric: {
       describe: 'Display the numeric code as well as the codec name',
-      type: 'booelan',
+      type: 'boolean',
       default: false
     }
   },
