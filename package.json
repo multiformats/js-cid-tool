@@ -1,6 +1,6 @@
 {
   "name": "cid-tool",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Convert and discover properties of CIDs",
   "main": "src/index.js",
   "bin": {
