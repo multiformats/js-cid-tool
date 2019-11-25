@@ -10,12 +10,12 @@ module.exports = {
 
   handler (argv) {
     if (argv.cids && argv.cids.length) {
-      return argv.cids.forEach(cid => console.log(CIDTool.base32(cid)))
+      return argv.cids.forEach(cid => console.log(CIDTool.base32(cid))) // eslint-disable-line no-console
     }
 
     process.stdin.pipe(split()).on('data', data => {
       const cid = data.toString().trim()
-      if (cid) console.log(CIDTool.base32(cid))
+      if (cid) console.log(CIDTool.base32(cid)) // eslint-disable-line no-console
     })
   }
 }

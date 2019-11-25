@@ -18,9 +18,9 @@ module.exports = {
   handler (argv) {
     CIDTool.codecs().forEach(({ name, code }) => {
       if (argv.numeric) {
-        console.log(`${code} ${name}`)
+        console.log(`${code} ${name}`) // eslint-disable-line no-console
       } else {
-        console.log(name)
+        console.log(name) // eslint-disable-line no-console
       }
     })
   }

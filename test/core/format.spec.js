@@ -42,7 +42,7 @@ describe('core format', () => {
     [cidv1, { format: '%%' }, '%']
   ]
 
-  testData.forEach(([ cid, options, expectedResult ]) => {
+  testData.forEach(([cid, options, expectedResult]) => {
     it(getTitle(cid, options), () => {
       const res = CIDTool.format(cid, options)
       expect(res).to.eql(expectedResult)
@@ -50,7 +50,7 @@ describe('core format', () => {
   })
 
   function getTitle (cid, { format, base, cidVersion }) {
-    let title = [`should format ${format || '%s'}`]
+    const title = [`should format ${format || '%s'}`]
     if (base != null) title.push(`change multibase to ${base}`)
     if (cidVersion != null) title.push(`change CID version to ${cidVersion}`)
     return title.join(' and ') + ` for CIDv${new CID(cid).version}`
