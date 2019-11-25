@@ -1,3 +1,13 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/multiformats/js-cid-tool/compare/v0.3.0...v0.4.0) (2019-11-25)
+
+
+### Features
+
+* support pipe multiple newline delimited CIDs ([#8](https://github.com/multiformats/js-cid-tool/issues/8)) ([0ea16fa](https://github.com/multiformats/js-cid-tool/commit/0ea16fa))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/multiformats/js-cid-tool/compare/v0.2.0...v0.3.0) (2019-05-09)
 
