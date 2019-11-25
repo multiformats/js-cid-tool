@@ -29,4 +29,15 @@ describe('cli format', () => {
     const { stdout } = await cli(`format ${TestCID.v0} --cid-version=1 --base=base32`)
     expect(stdout).to.equal(expectedOutput)
   })
+
+  it('should support piping multiple newline delimited CIDs to formatter', async () => {
+    const cli = CIDToolCli()
+    const input = Object.keys(TestCID).map(k => TestCID[k])
+    const expectedOutput = input.map(() => TestCID.b32).join('\n') + '\n'
+    const proc = cli('format --cid-version=1 --base=base32')
+    input.forEach(cid => proc.stdin.write(`${cid}\n`))
+    proc.stdin.end()
+    const { stdout } = await proc
+    expect(stdout).to.equal(expectedOutput)
+  })
 })

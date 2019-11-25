@@ -28,4 +28,15 @@ describe('cli base32', () => {
 
     throw new Error('did no fail on invalid CID')
   })
+
+  it('should support piping multiple newline delimited CIDs to converter', async () => {
+    const cli = CIDToolCli()
+    const input = Object.keys(TestCID).map(k => TestCID[k])
+    const expectedOutput = input.map(() => TestCID.b32).join('\n') + '\n'
+    const proc = cli('base32')
+    input.forEach(cid => proc.stdin.write(`${cid}\n`))
+    proc.stdin.end()
+    const { stdout } = await proc
+    expect(stdout).to.equal(expectedOutput)
+  })
 })

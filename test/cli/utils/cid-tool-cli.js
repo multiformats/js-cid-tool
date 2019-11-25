@@ -6,7 +6,7 @@ const binPath = path.join(process.cwd(), 'src', 'cli', 'bin.js')
 
 module.exports = options => {
   const config = Object.assign({}, {
-    stripEof: false,
+    stripFinalNewline: false,
     env: Object.assign({}, process.env),
     timeout: 60 * 1000
   }, options)
