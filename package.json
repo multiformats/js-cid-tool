@@ -32,13 +32,14 @@
     "explain-error": "^1.0.4",
     "multibase": "~0.6.0",
     "multihashes": "~0.4.14",
-    "yargs": "^13.2.2"
+    "split2": "^3.1.1",
+    "yargs": "^15.0.2"
   },
   "devDependencies": {
-    "aegir": "^18.2.2",
+    "aegir": "^20.4.1",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1",
-    "execa": "^1.0.0"
+    "execa": "^3.4.0"
   },
   "contributors": [
     "Alan Shaw <alan.shaw@protocol.ai>",

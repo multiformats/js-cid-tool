@@ -1,5 +1,6 @@
 'use strict'
 
+const split = require('split2')
 const CIDTool = require('../../')
 
 module.exports = {
@@ -57,9 +58,9 @@ module.exports = {
       return argv.cids.forEach(cid => console.log(CIDTool.format(cid, options)))
     }
 
-    process.stdin.on('data', data => {
+    process.stdin.pipe(split()).on('data', data => {
       const cid = data.toString().trim()
-      console.log(CIDTool.format(cid, options))
+      if (cid) console.log(CIDTool.format(cid, options))
     })
   }
 }
