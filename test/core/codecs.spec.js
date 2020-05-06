@@ -15,7 +15,7 @@ describe('core codecs', () => {
     expect(Object.keys(CID.codecs).every(name => {
       return codecs.find(c => {
         return c.name === name &&
-          c.code === parseInt(CID.codecs[name].toString('hex'), 16)
+          c.code === CID.codecs[name]
       })
     })).to.be.true()
   })

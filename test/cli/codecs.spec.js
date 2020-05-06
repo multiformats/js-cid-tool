@@ -20,7 +20,7 @@ describe('cli codecs', () => {
     const cli = CIDToolCli()
     const expectedOutput = Object.keys(CID.codecs)
       .map(name => {
-        const code = parseInt(CID.codecs[name].toString('hex'), 16)
+        const code = CID.codecs[name]
         return `${code} ${name}`
       })
       .join('\n') + '\n'
