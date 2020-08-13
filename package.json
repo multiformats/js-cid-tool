@@ -28,17 +28,16 @@
   "author": "Alan Shaw",
   "license": "MIT",
   "dependencies": {
-    "cids": "~0.8.0",
+    "cids": "^1.0.0",
     "explain-error": "^1.0.4",
-    "multibase": "~0.7.0",
-    "multihashes": "~0.4.14",
+    "multibase": "^3.0.0",
+    "multihashes": "^3.0.1",
     "split2": "^3.1.1",
+    "uint8arrays": "^1.1.0",
     "yargs": "^15.0.2"
   },
   "devDependencies": {
-    "aegir": "^21.10.2",
-    "chai": "^4.1.2",
-    "dirty-chai": "^2.0.1",
+    "aegir": "^25.1.0",
     "execa": "^4.0.0"
   },
   "contributors": [

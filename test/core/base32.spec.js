@@ -1,10 +1,7 @@
 /* eslint-env mocha */
 'use strict'
 
-const chai = require('chai')
-const dirtyChai = require('dirty-chai')
-const expect = chai.expect
-chai.use(dirtyChai)
+const { expect } = require('aegir/utils/chai')
 const CID = require('cids')
 const CIDTool = require('../../')
 const TestCID = require('../fixtures/test-cid')
@@ -14,16 +11,16 @@ describe('core base32', () => {
     const inputs = [
       TestCID.v0,
       new CID(TestCID.v0),
-      new CID(TestCID.v0).buffer,
+      new CID(TestCID.v0).bytes,
       TestCID.b32,
       new CID(TestCID.b32),
-      new CID(TestCID.b32).buffer,
+      new CID(TestCID.b32).bytes,
       TestCID.b58,
       new CID(TestCID.b58),
-      new CID(TestCID.b58).buffer,
+      new CID(TestCID.b58).bytes,
       TestCID.b64,
       new CID(TestCID.b64),
-      new CID(TestCID.b64).buffer
+      new CID(TestCID.b64).bytes
     ]
 
     inputs.forEach(input => {

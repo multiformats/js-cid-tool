@@ -106,7 +106,7 @@ Convert the passed CID to base 32 CID version 1.
 
 | Name | Type | Description |
 |------|------|-------------|
-| cid | [`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID to convert. |
+| cid | [`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Uint8Array` | CID to convert. |
 
 #### Returns
 
@@ -185,7 +185,7 @@ Format and convert a CID in various useful ways.
 
 | Name | Type | Description |
 |------|------|-------------|
-| cid | [`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Buffer` | CID to format |
+| cid | [`CID`](https://github.com/ipld/js-cid/)\|`String`\|`Uint8Array` | CID to format |
 | options | `Object` | (optional) options for formatting |
 | options.format | `String` | Format string to use, default "%s" |
 | options.base | `String` | Multibase name or code to use for output |

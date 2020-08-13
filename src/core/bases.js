@@ -3,8 +3,9 @@
 const multibase = require('multibase')
 
 module.exports = function bases () {
-  return multibase.names.map((name, i) => {
-    const code = multibase.codes[i]
-    return { name, code }
+  return Object.keys(multibase.names).map(name => {
+    const base = multibase.names[name]
+
+    return { name: base.name, code: base.code }
   })
 }
