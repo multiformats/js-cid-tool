@@ -1,3 +1,19 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/multiformats/js-cid-tool/compare/v0.4.1...v1.0.0) (2020-08-19)
+
+
+### Bug Fixes
+
+* replace node buffers with uint8arrays ([ba5b9e4](https://github.com/multiformats/js-cid-tool/commit/ba5b9e4))
+
+
+### BREAKING CHANGES
+
+* - All use of node Buffers have been replaced with Uint8Arrays
+- All deps of this module now use Uint8Arrays in place of Buffers
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/multiformats/js-cid-tool/compare/v0.4.0...v0.4.1) (2020-05-07)
 
