@@ -6,6 +6,7 @@ const codecs = require('./codecs')
 const explain = require('explain-error')
 const multibase = require('multibase')
 const multihash = require('multihashes')
+const uint8ArrayToString = require('uint8arrays/to-string')
 
 module.exports = function format (cid, options) {
   options = options || {}
@@ -87,19 +88,19 @@ function replacer (cid, base, options) {
       case 'L': // hash length
         return multihash.decode(cid.multihash).length
       case 'm': // multihash encoded in base %b
-        return multibase.encode(base, cid.multihash)
+        return uint8ArrayToString(multibase.encode(base, cid.multihash))
       case 'M': // multihash encoded in base %b without base prefix
-        return multibase.encode(base, cid.multihash).slice(1)
+        return uint8ArrayToString(cid.multihash, base)
       case 'd': // hash digest encoded in base %b
-        return multibase.encode(base, multihash.decode(cid.multihash).digest)
+        return uint8ArrayToString(multibase.encode(base, multihash.decode(cid.multihash).digest))
       case 'D': // hash digest encoded in base %b without base prefix
-        return multibase.encode(base, multihash.decode(cid.multihash).digest).slice(1)
+        return uint8ArrayToString(multihash.decode(cid.multihash).digest, base)
       case 's': // cid string encoded in base %b
-        return cid.toBaseEncodedString(base)
+        return cid.toString(base)
       case 'S': // cid string without base prefix
         return cid.version === 1
-          ? cid.toBaseEncodedString(base).slice(1)
-          : multibase.encode(base, cid.buffer).toString().slice(1)
+          ? cid.toString(base).slice(1)
+          : uint8ArrayToString(cid.bytes, base)
       case 'P': // prefix
         return prefix(cid)
       default:

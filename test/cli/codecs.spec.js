@@ -1,10 +1,7 @@
 /* eslint-env mocha */
 'use strict'
 
-const chai = require('chai')
-const dirtyChai = require('dirty-chai')
-const expect = chai.expect
-chai.use(dirtyChai)
+const { expect } = require('aegir/utils/chai')
 const CID = require('cids')
 const CIDToolCli = require('./utils/cid-tool-cli')
 
@@ -21,7 +18,7 @@ describe('cli codecs', () => {
     const expectedOutput = Object.keys(CID.codecs)
       .map(name => {
         const code = CID.codecs[name]
-        return `${code} ${name}`
+        return `${code}\t${name}`
       })
       .join('\n') + '\n'
     const { stdout } = await cli('codecs --numeric')

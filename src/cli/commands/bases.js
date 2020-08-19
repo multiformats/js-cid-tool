@@ -23,11 +23,11 @@ module.exports = {
   handler (argv) {
     CIDTool.bases().forEach(({ name, code }) => {
       if (argv.prefix && argv.numeric) {
-        console.log(`${code} ${code.charCodeAt(0)} ${name}`) // eslint-disable-line no-console
+        console.log(`${code}\t${code.charCodeAt(0)}\t${name}`) // eslint-disable-line no-console
       } else if (argv.prefix) {
-        console.log(`${code} ${name}`) // eslint-disable-line no-console
+        console.log(`${code}\t${name}`) // eslint-disable-line no-console
       } else if (argv.numeric) {
-        console.log(`${code.charCodeAt(0)} ${name}`) // eslint-disable-line no-console
+        console.log(`${code.charCodeAt(0)}\t${name}`) // eslint-disable-line no-console
       } else {
         console.log(name) // eslint-disable-line no-console
       }
