@@ -8,6 +8,10 @@ module.exports = {
 
   describe: 'Convert CIDs to base 32 CID version 1.',
 
+  /**
+   * @param {object} argv
+   * @param {string[]} [argv.cids]
+   */
   handler (argv) {
     if (argv.cids && argv.cids.length) {
       return argv.cids.forEach(cid => console.log(CIDTool.base32(cid))) // eslint-disable-line no-console

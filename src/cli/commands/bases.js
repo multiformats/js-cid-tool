@@ -20,6 +20,11 @@ module.exports = {
     }
   },
 
+  /**
+   * @param {object} argv
+   * @param {boolean} [argv.prefix]
+   * @param {boolean} [argv.numeric]
+   */
   handler (argv) {
     CIDTool.bases().forEach(({ name, code }) => {
       if (argv.prefix && argv.numeric) {
