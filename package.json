@@ -1,6 +1,6 @@
 {
   "name": "cid-tool",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Convert and discover properties of CIDs",
   "main": "src/index.js",
   "bin": {
@@ -44,7 +44,7 @@
   "contributors": [
     "Alan Shaw <alan.shaw@protocol.ai>",
     "Hugo Dias <hugomrdias@gmail.com>",
-    "achingbrain <alex@achingbrain.net>"
+    "Alex Potsides <alex@achingbrain.net>"
   ],
   "directories": {
     "test": "test"
