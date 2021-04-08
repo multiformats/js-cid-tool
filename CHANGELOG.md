@@ -1,3 +1,7 @@
+# [3.0.0](https://github.com/multiformats/js-cid-tool/compare/v2.0.0...v3.0.0) (2021-04-08)
+
+
+
 # [2.0.0](https://github.com/multiformats/js-cid-tool/compare/v0.4.1...v2.0.0) (2021-04-08)
 
 
