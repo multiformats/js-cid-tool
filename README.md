@@ -1,6 +1,6 @@
 # CID Tool
 
-[![Build Status](https://travis-ci.org/multiformats/js-cid-tool.svg?branch=master)](https://travis-ci.org/multiformats/js-cid-tool) [![dependencies Status](https://david-dm.org/multiformats/js-cid-tool/status.svg)](https://david-dm.org/multiformats/js-cid-tool) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Build Status](https://travis-ci.org/multiformats/js-cid-tool.svg?branch=master)](https://travis-ci.org/multiformats/js-cid-tool) [![dependencies Status](https://status.david-dm.org/gh/multiformats/js-cid-tool.svg)](https://david-dm.org/multiformats/js-cid-tool) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > A module and command line tool for converting, formatting and discovering properties of CIDs
 
