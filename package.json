@@ -8,12 +8,12 @@
   },
   "scripts": {
     "start": "node src/cli/bin.js",
-    "test": "aegir test -t node",
+    "test": "aegir test",
     "build": "aegir build",
     "lint": "aegir lint && aegir ts --check",
-    "release": "aegir release -t node",
-    "release-minor": "aegir release -t node --type minor",
-    "release-major": "aegir release -t node --type major",
+    "release": "aegir release",
+    "release-minor": "aegir release --type minor",
+    "release-major": "aegir release --type major",
     "coverage": "aegir coverage"
   },
   "keywords": [
