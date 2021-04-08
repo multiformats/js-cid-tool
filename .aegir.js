@@ -1,6 +1,6 @@
 
 module.exports = {
   test: {
-    target: 'node'
+    target: ['node']
   }
 }
