@@ -1,3 +1,22 @@
+# [2.0.0](https://github.com/multiformats/js-cid-tool/compare/v0.4.1...v2.0.0) (2021-04-08)
+
+
+### Bug Fixes
+
+* david badge ([c99b684](https://github.com/multiformats/js-cid-tool/commit/c99b684cbe3612f8d82daf3b718b72601ddcb814))
+
+
+### chore
+
+* updates all deps and adds types ([#11](https://github.com/multiformats/js-cid-tool/issues/11)) ([643bbbb](https://github.com/multiformats/js-cid-tool/commit/643bbbb26119ae83bcb9a416b618273b9b65f350))
+
+
+### BREAKING CHANGES
+
+* There are now types where before there were none
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/multiformats/js-cid-tool/compare/v0.4.1...v1.0.0) (2020-08-19)
 
