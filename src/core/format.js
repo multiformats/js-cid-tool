@@ -3,11 +3,21 @@
 const CID = require('cids')
 const bases = require('./bases')
 const codecs = require('./codecs')
+// @ts-ignore no types
 const explain = require('explain-error')
 const multibase = require('multibase')
 const multihash = require('multihashes')
 const uint8ArrayToString = require('uint8arrays/to-string')
 
+/**
+ * @typedef {import('multibase').BaseName} BaseName
+ * @typedef {import('multibase').BaseNameOrCode} BaseNameOrCode
+ */
+
+/**
+ * @param {CID | string | Uint8Array} cid
+ * @param {import('./types').FormatOptions} options
+ */
 module.exports = function format (cid, options) {
   options = options || {}
 
@@ -39,54 +49,62 @@ module.exports = function format (cid, options) {
     }
   }
 
-  let base
+  /**
+   * @type {BaseName}
+   */
+  let base = 'base58btc'
 
   if (options.base) {
-    base = options.base
+    // Validate passed base name/code
+    base = findBase(options.base).name
   } else if (isString(originalCid)) {
     // Use base of input CID if string
-    base = multibase.isEncoded(originalCid)
+    base = multibase.isEncoded(originalCid) || base
   }
 
-  base = base || 'base58btc'
-
-  // Using multibase code instead of name
-  if (base.length === 1) {
-    const baseNameCode = bases().find(b => b.code === base)
-    if (!baseNameCode) throw new Error(`invalid multibase: ${base}`)
-    base = baseNameCode.name
-  }
-
-  return formatStr.replace(/%([a-zA-Z%])/g, replacer(cid, base, options))
+  return formatStr.replace(/%([a-zA-Z%])/g, replacer(cid, base))
 }
 
+/**
+ * @param {*} obj
+ * @returns {obj is String}
+ */
 function isString (obj) {
   return Object.prototype.toString.call(obj) === '[object String]'
 }
 
-function replacer (cid, base, options) {
-  return (match, specifier) => {
+/**
+ * @param {CID} cid
+ * @param {BaseName} base
+ * @returns {(match: any, specifier: string) => string}
+ */
+function replacer (cid, base) {
+  /**
+   * @param {*} match
+   * @param {string} specifier
+   */
+  const replace = (match, specifier) => {
     switch (specifier) {
       case '%':
         return '%'
       case 'b': // base name
         return base
       case 'B': // base code
-        return bases().find(b => b.name === base).code
+        return findBase(base).code
       case 'v': // version string
         return `cidv${cid.version}`
       case 'V': // version num
-        return cid.version
+        return cid.version.toString()
       case 'c': // codec name
         return cid.codec
       case 'C': // codec code
-        return codecs().find(c => c.name === cid.codec).code
+        return findCodec(cid).toString()
       case 'h': // hash fun name
         return multihash.decode(cid.multihash).name
       case 'H': // hash fun code
-        return multihash.decode(cid.multihash).code
+        return multihash.decode(cid.multihash).code.toString()
       case 'L': // hash length
-        return multihash.decode(cid.multihash).length
+        return multihash.decode(cid.multihash).length.toString()
       case 'm': // multihash encoded in base %b
         return uint8ArrayToString(multibase.encode(base, cid.multihash))
       case 'M': // multihash encoded in base %b without base prefix
@@ -103,12 +121,44 @@ function replacer (cid, base, options) {
           : uint8ArrayToString(cid.bytes, base)
       case 'P': // prefix
         return prefix(cid)
+
       default:
         throw new Error(`unrecognized specifier in format string: ${specifier}`)
     }
   }
+
+  return replace
 }
 
+/**
+ * @param {BaseNameOrCode} nameOrCode
+ */
+function findBase (nameOrCode) {
+  const baseNameCode = bases().find(b => (b.code === nameOrCode) || b.name === nameOrCode)
+
+  if (!baseNameCode) {
+    throw new Error(`invalid multibase: ${nameOrCode}`)
+  }
+
+  return baseNameCode
+}
+
+/**
+ * @param {CID} cid
+ */
+function findCodec (cid) {
+  const codec = codecs().find(c => c.name === cid.codec)
+
+  if (!codec) {
+    throw new Error(`invalid codec: ${cid.codec}`)
+  }
+
+  return codec.code
+}
+
+/**
+ * @param {CID} cid
+ */
 function prefix (cid) {
   const { name, length } = multihash.decode(cid.multihash)
   return `cidv${cid.version}-${cid.codec}-${name}-${length}`

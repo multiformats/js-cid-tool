@@ -15,6 +15,10 @@ module.exports = {
     }
   },
 
+  /**
+   * @param {object} argv
+   * @param {boolean} [argv.numeric]
+   */
   handler (argv) {
     CIDTool.hashes().forEach(({ name, code }) => {
       if (argv.numeric) {

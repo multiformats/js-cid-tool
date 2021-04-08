@@ -47,6 +47,13 @@ module.exports = {
     }
   },
 
+  /**
+   * @param {object} argv
+   * @param {string[]} [argv.cids]
+   * @param {string} [argv.format]
+   * @param {import('cids').CIDVersion} [argv.cidVersion]
+   * @param {import('multibase').BaseNameOrCode} [argv.base]
+   */
   handler (argv) {
     const options = {
       format: argv.format,

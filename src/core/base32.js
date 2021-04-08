@@ -1,8 +1,12 @@
 'use strict'
 
 const CID = require('cids')
+// @ts-ignore no types
 const explain = require('explain-error')
 
+/**
+ * @param {CID | string | Uint8Array} cid
+ */
 module.exports = function base32 (cid) {
   try {
     cid = new CID(cid)
